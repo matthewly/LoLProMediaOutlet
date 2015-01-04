@@ -1,0 +1,223 @@
+<style>
+  .gold {
+    color: darkgoldenrod;
+  }
+  .green
+  {
+    color: green;
+  }
+  .blue
+  {
+    color: blue;
+  }
+
+  .match_history tr, .match_history th
+  {
+    text-align: center;
+  }
+  .tweets
+  {
+    background: lightskyblue;
+  }
+  .header-names
+  {
+    background: lightgray;
+  }
+  .username
+  {
+    font-weight: 900;
+  }
+  .statuses
+  {
+    background: beige;
+  }
+</style>
+<% if @win == true %>
+    <style type="text/css">
+      .match_history tr.game1 {
+        background: greenyellow;
+      }
+    </style>
+    <% else %>
+    <style type="text/css">
+      .match_history tr.game1 {
+        background: lightpink;
+      }
+    </style>
+<% end %>
+<% if @win1 == true %>
+    <style type="text/css">
+      .match_history tr.game2 {
+        background: greenyellow;
+      }
+    </style>
+    <% else %>
+    <style type="text/css">
+      .match_history tr.game2 {
+        background: lightpink;
+      }
+    </style>
+<% end %>
+<% if @win2 == true %>
+    <style type="text/css">
+      .match_history tr.game3 {
+        background: greenyellow;
+      }
+    </style>
+    <% else %>
+    <style type="text/css">
+      .match_history tr.game3 {
+        background: lightpink;
+      }
+    </style>
+<% end %>
+<% if @win3 == true %>
+    <style type="text/css">
+      .match_history tr.game4 {
+        background: greenyellow;
+      }
+    </style>
+    <% else %>
+    <style type="text/css">
+      .match_history tr.game4 {
+        background: lightpink;
+      }
+    </style>
+<% end %>
+<% if @win4 == true %>
+    <style type="text/css">
+      .match_history tr.game5 {
+        background: greenyellow;
+      }
+    </style>
+    <% else %>
+    <style type="text/css">
+      .match_history tr.game5 {
+        background: lightpink;
+      }
+    </style>
+<% end %>
+<div class="container-fluid">
+  <div class="row col-md-offset-4">
+    <h3 class="gold">Summoner Name:  <%= @name %></h3>
+  </div>
+  <div class="row col-md-offset-3">
+
+    <h5 class="green">Twitch: <%= @twitch_status %> | <a class="blue" href="<%= @twitch_url%>"><%= @twitch_url %></a></h5>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="gold">Ranked Solo Queue History</h4>
+      <table class="table table-hover match_history">
+        <tr class="header-names">
+          <th>Champion</th>
+          <th>Kills</th>
+          <th>Deaths</th>
+          <th>Assists</th>
+          <th>Gold</th>
+          <th>Time</th>
+        </tr>
+
+        <tr class="game1">
+          <td><%= @champ_name%> </td>
+          <td> <%= @kills %></td>
+          <td> <%= @deaths  %> </td>
+          <td> <%= @assists %> </td>
+          <td> <%= @ge %> </td>
+          <td> <%= @time %> mins</td>
+        </tr>
+        <tr class="game2">
+          <td><%= @champ_name1%> </td>
+          <td> <%= @kills1 %></td>
+          <td> <%= @deaths1  %> </td>
+          <td> <%= @assists1 %> </td>
+          <td> <%= @ge1 %> </td>
+          <td> <%= @time1 %> mins</td>
+        </tr>
+        <tr class="game3">
+          <td><%= @champ_name2%> </td>
+          <td> <%= @kills2 %></td>
+          <td> <%= @deaths2  %> </td>
+          <td> <%= @assists2 %> </td>
+          <td> <%= @ge2 %> </td>
+          <td> <%= @time2 %> mins</td>
+        </tr>
+        <tr class="game4">
+          <td><%= @champ_name3%> </td>
+          <td> <%= @kills3 %></td>
+          <td> <%= @deaths3  %> </td>
+          <td> <%= @assists3 %> </td>
+          <td> <%= @ge3 %> </td>
+          <td> <%= @time3 %> mins</td>
+        </tr>
+        <tr class="game5">
+          <td><%= @champ_name4%> </td>
+          <td> <%= @kills4 %></td>
+          <td> <%= @deaths4  %> </td>
+          <td> <%= @assists4 %> </td>
+          <td> <%= @ge4 %> </td>
+          <td> <%= @time4 %> mins</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-6 ">
+      <h4 class="gold">Latest Tweets</h4>
+      <table class="table table-hover">
+        <tr class="header-names">
+          <th>Date</th>
+          <th>Tweet</th>
+        </tr>
+        <tr class="tweets">
+          <td class="username"><%= @tweettime1 %> </td>
+          <td><%= @tweet[0].text %> </td>
+        </tr>
+        <tr class="tweets">
+          <td class="username"><%= @tweettime2 %> </td>
+          <td><%= @tweet[1].text %> </td>
+        </tr>
+        <tr class="tweets">
+          <td class="username"><%= @tweettime3 %> </td>
+          <td><%= @tweet[2].text %> </td>
+        </tr>
+        <tr class="tweets">
+          <td class="username"><%= @tweettime4 %> </td>
+          <td><%= @tweet[3].text %> </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="gold">YouTube Videos</h4>
+      <table class="table table-hover">
+        <tr>
+          <th><object width="270" height="240"
+                      data=<%=@video_url_one%>>
+              </object>
+          </th>
+          <th><object width="270" height="240"
+                      data=<%=@video_url_two%>>
+              </object>
+          </th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-6">
+      <h4 class="gold"> Latest Facebook Status</h4>
+      <table class="table table-hover">
+        <tr class="header-names">
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td class="statuses">
+            <h4><%= @facebook_post1 %> </h4>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>

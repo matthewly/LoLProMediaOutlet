@@ -1,0 +1,37 @@
+<style>
+    body {
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    }
+    .background {
+        background-image: url('lol.jpg'); no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: relative
+    }
+    .form
+    {
+        position: absolute;
+        padding-top: 20px;
+        top: 0px;
+    }
+    p {
+        font-style: bold;
+    }
+</style>
+
+<body>
+    <div class="background"></div>
+        <div class="row col-md-3 col-md-offset-5 form">
+
+          <%= form_for :player  ,url: player_show_url do |f| %>
+              <h4>Enter Pro Player Name</h4>
+              <%= f.text_field :name %>
+              <button type="submit" class="btn btn-primary">Search</button>
+          <% end %>
+          <p>Stuck? Try "doublelift</p>
+        </div>
+
+</body>

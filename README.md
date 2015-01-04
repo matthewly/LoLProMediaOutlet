@@ -13,16 +13,7 @@ Technologies Used:
   - HTML/CSS
   - JavaScript
   - Ruby
-  - Gems 
-    - 'omniauth'
-    - 'youtube_it'
-    - 'nokogiri'
-    - 'open-uri'
-    - 'rubygems'
-    - 'rest-client'
-    - 'twitter-text'
-    - 'koala'
-    - 'time'
+  - Gems : omniauth, youtube_it, nokogiri, open-uri, rubygems, rest-client, twitter-text, koala, time
 
 Main Techniques:
   - Social media GET requests

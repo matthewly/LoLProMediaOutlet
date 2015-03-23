@@ -258,4 +258,5 @@ class PlayerController < ApplicationController
     text = auto_link(text)
     text ? text.html_safe : ''
   end
+
 end

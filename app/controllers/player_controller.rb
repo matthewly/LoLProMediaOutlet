@@ -64,58 +64,6 @@ class PlayerController < ApplicationController
       i += 1
     end
 
-    #match_history =  JSON.parse(@response.body)["matches"][9]
-    #get_stats(match_history)
-
-    #match_history = get_match_history(@id,9)
-    #@kills = match_history["participants"][0]["stats"]["kills"]
-    #@deaths = match_history["participants"][0]["stats"]["deaths"]
-    #@assists = match_history["participants"][0]["stats"]["assists"]
-    #@win = match_history["participants"][0]["stats"]["winner"]
-    #@ge = match_history["participants"][0]["stats"]["goldEarned"]
-    #@time = match_history["matchDuration"]/60
-    #cid = match_history['participants'][0]['championId']
-    #@champ_name = champ_name(cid)
-
-    #match_history = get_match_history(@id,8)
-    #@kills1 = match_history["participants"][0]["stats"]["kills"]
-    #@deaths1 = match_history["participants"][0]["stats"]["deaths"]
-    #@assists1 = match_history["participants"][0]["stats"]["assists"]
-    #@win1 = match_history["participants"][0]["stats"]["winner"]
-    #@ge1 = match_history["participants"][0]["stats"]["goldEarned"]
-    #@time1 = match_history["matchDuration"]/60
-    #@cid = match_history['participants'][0]['championId']
-    #@champ_name1 = champ_name(@cid)
-#
-    #match_history = get_match_history(@id,7)
-    #@kills2 = match_history["participants"][0]["stats"]["kills"]
-    #@deaths2 = match_history["participants"][0]["stats"]["deaths"]
-    #@assists2 = match_history["participants"][0]["stats"]["assists"]
-    #@win2 = match_history["participants"][0]["stats"]["winner"]
-    #@ge2 = match_history["participants"][0]["stats"]["goldEarned"]
-    #@time2 = match_history["matchDuration"]/60
-    #@cid = match_history['participants'][0]['championId']
-    #@champ_name2 = champ_name(@cid)
-#
-    #match_history = get_match_history(@id,6)
-    #@kills3 = match_history["participants"][0]["stats"]["kills"]
-    #@deaths3 = match_history["participants"][0]["stats"]["deaths"]
-    #@assists3 = match_history["participants"][0]["stats"]["assists"]
-    #@win3 = match_history["participants"][0]["stats"]["winner"]
-    #@ge3 = match_history["participants"][0]["stats"]["goldEarned"]
-    #@time3 = match_history["matchDuration"]/60
-    #@cid = match_history['participants'][0]['championId']
-    #@champ_name3 = champ_name(@cid)
-#
-    #match_history = get_match_history(@id,5)
-    #@kills4 = match_history["participants"][0]["stats"]["kills"]
-    #@deaths4 = match_history["participants"][0]["stats"]["deaths"]
-    #@assists4 = match_history["participants"][0]["stats"]["assists"]
-    #@win4 = match_history["participants"][0]["stats"]["winner"]
-    #@ge4 = match_history["participants"][0]["stats"]["goldEarned"]
-    #@time4 = match_history["matchDuration"]/60
-    #@cid = match_history['participants'][0]['championId']
-    #@champ_name4 = champ_name(@cid)
 
     #TWITCH
     @twitch_profile = get_twitch_profile(@player.name)
@@ -209,26 +157,6 @@ class PlayerController < ApplicationController
 
   #TWITCH
   def get_twitch_profile(name)
-    #url = "http://lol.gamepedia.com/"+name
-    #page = Nokogiri::HTML(RestClient.get(url))
-    #puts page.class   # => Nokogiri::HTML::Document
-    #table_headers = page.css('table.infobox2 tr')
-    #searched_element = table_headers.search "[text()*='Twitch.']"
-    #twitch_link = searched_element[0]['href']
-    #if twitch_link.include? "https"
-    #  if twitch_link.include? "www"
-    #    twitch_profile_substring = twitch_link.sub("https://www.twitch.tv/", "")
-    #  else
-    #    twitch_profile_substring = twitch_link.sub("https://twitch.tv/", "")
-    #  end
-    #else
-    #  if twitch_link.include? "www"
-    #    twitch_profile_substring = twitch_link.sub("http://www.twitch.tv/", "")
-    #  else
-    #    twitch_profile_substring = twitch_link.sub("http://twitch.tv/", "")
-    #  end
-    #end
-    #@twitch_profile = twitch_profile_substring
     t1 = Player.find_by name:name
     @twitch_profile = t1.twitch_prof
     return @twitch_profile
@@ -249,52 +177,12 @@ class PlayerController < ApplicationController
   end
 
   def get_facebook_profile(name)
-    #url = "http://lol.gamepedia.com/"+name
-    #page = Nokogiri::HTML(RestClient.get(url))
-    #puts page.class   # => Nokogiri::HTML::Document
-    #table_headers = page.css('table.infobox2 tr')
-    #searched_element = table_headers.search "[text()*='Facebook Fan']"
-    #facebook_link = searched_element[0]['href']
-    #if facebook_link.include? "https"
-    #  if facebook_link.include? "www"
-    #    facebook_profile_substring = facebook_link.sub("https://www.facebook.com/", "")
-    #  else
-    #    facebook_profile_substring = facebook_link.sub("https://facebook.com/", "")
-    #  end
-    #else
-    #  if facebook_link.include? "www"
-    #    facebook_profile_substring = facebook_link.sub("http://www.facebook.com/", "")
-    #  else
-    #    facebook_profile_substring = facebook_link.sub("http://facebook.com/", "")
-    #  end
-    #end
-    #@facebook_profile = facebook_profile_substring
     f1 = Player.find_by name:name
     @facebook_profile = f1.facebook_prof
     return @facebook_profile
   end
 
   def get_twitter_profile(name)
-    #url = "http://lol.gamepedia.com/"+name
-    #page = Nokogiri::HTML(RestClient.get(url))
-    #puts page.class   # => Nokogiri::HTML::Document
-    #table_headers = page.css('table.infobox2 tr td')
-    #searched_element = table_headers.search "[text()*='@']"
-    #twitter_link = searched_element[0]['href']
-    #if twitter_link.include? "https"
-    #  if twitter_link.include? "www"
-    #    twitter_profile_substring = twitter_link.sub("https://www.twitter.com/", "")
-    #  else
-    #    twitter_profile_substring = twitter_link.sub("https://twitter.com/", "")
-    #  end
-    #else
-    #  if twitter_link.include? "www"
-    #    twitter_profile_substring = twitter_link.sub("http://www.twitter.com/", "")
-    #  else
-    #    twitter_profile_substring = twitter_link.sub("http://twitter.com/", "")
-    #  end
-    #end
-    #@twitter_profile = twitter_profile_substring
     t1 = Player.find_by name:name
     @twitter_profile = t1.twitter_prof
     return @twitter_profile

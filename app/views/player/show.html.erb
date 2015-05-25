@@ -32,7 +32,7 @@
     background: beige;
   }
 </style>
-<% if @win == true %>
+<% if @wins[0] == true %>
     <style type="text/css">
       .match_history tr.game1 {
         background: greenyellow;
@@ -45,7 +45,7 @@
       }
     </style>
 <% end %>
-<% if @win1 == true %>
+<% if @wins[1] == true %>
     <style type="text/css">
       .match_history tr.game2 {
         background: greenyellow;
@@ -58,7 +58,7 @@
       }
     </style>
 <% end %>
-<% if @win2 == true %>
+<% if @wins[2] == true %>
     <style type="text/css">
       .match_history tr.game3 {
         background: greenyellow;
@@ -71,7 +71,7 @@
       }
     </style>
 <% end %>
-<% if @win3 == true %>
+<% if @wins[3] == true %>
     <style type="text/css">
       .match_history tr.game4 {
         background: greenyellow;
@@ -84,7 +84,7 @@
       }
     </style>
 <% end %>
-<% if @win4 == true %>
+<% if @wins[4] == true %>
     <style type="text/css">
       .match_history tr.game5 {
         background: greenyellow;
@@ -119,44 +119,44 @@
         </tr>
 
         <tr class="game1">
-          <td><%= @champ_name%> </td>
-          <td> <%= @kills %></td>
-          <td> <%= @deaths  %> </td>
-          <td> <%= @assists %> </td>
-          <td> <%= @ge %> </td>
-          <td> <%= @time %> mins</td>
+          <td><%= @champ_name[0]%> </td>
+          <td> <%= @kills[0] %></td>
+          <td> <%= @deaths[0]  %> </td>
+          <td> <%= @assists[0] %> </td>
+          <td> <%= @ge[0] %> </td>
+          <td> <%= @time[0] %> mins</td>
         </tr>
         <tr class="game2">
-          <td><%= @champ_name1%> </td>
-          <td> <%= @kills1 %></td>
-          <td> <%= @deaths1  %> </td>
-          <td> <%= @assists1 %> </td>
-          <td> <%= @ge1 %> </td>
-          <td> <%= @time1 %> mins</td>
+          <td><%= @champ_name[1]%> </td>
+          <td> <%= @kills[1] %></td>
+          <td> <%= @deaths[1]  %> </td>
+          <td> <%= @assists[1] %> </td>
+          <td> <%= @ge[1] %> </td>
+          <td> <%= @time[1] %> mins</td>
         </tr>
         <tr class="game3">
-          <td><%= @champ_name2%> </td>
-          <td> <%= @kills2 %></td>
-          <td> <%= @deaths2  %> </td>
-          <td> <%= @assists2 %> </td>
-          <td> <%= @ge2 %> </td>
-          <td> <%= @time2 %> mins</td>
+          <td><%= @champ_name[2]%> </td>
+          <td> <%= @kills[2] %></td>
+          <td> <%= @deaths[2]  %> </td>
+          <td> <%= @assists[2] %> </td>
+          <td> <%= @ge[2] %> </td>
+          <td> <%= @time[2] %> mins</td>
         </tr>
         <tr class="game4">
-          <td><%= @champ_name3%> </td>
-          <td> <%= @kills3 %></td>
-          <td> <%= @deaths3  %> </td>
-          <td> <%= @assists3 %> </td>
-          <td> <%= @ge3 %> </td>
-          <td> <%= @time3 %> mins</td>
+          <td><%= @champ_name[3]%> </td>
+          <td> <%= @kills[3] %></td>
+          <td> <%= @deaths[3]  %> </td>
+          <td> <%= @assists[3] %> </td>
+          <td> <%= @ge[3] %> </td>
+          <td> <%= @time[3] %> mins</td>
         </tr>
         <tr class="game5">
-          <td><%= @champ_name4%> </td>
-          <td> <%= @kills4 %></td>
-          <td> <%= @deaths4  %> </td>
-          <td> <%= @assists4 %> </td>
-          <td> <%= @ge4 %> </td>
-          <td> <%= @time4 %> mins</td>
+          <td><%= @champ_name[4]%> </td>
+          <td> <%= @kills[4] %></td>
+          <td> <%= @deaths[4]  %> </td>
+          <td> <%= @assists[4] %> </td>
+          <td> <%= @ge[4] %> </td>
+          <td> <%= @time[4] %> mins</td>
         </tr>
       </table>
     </div>
@@ -188,19 +188,16 @@
     </div>
 
   </div>
+
   <div class="row">
     <div class="col-md-6">
       <h4 class="gold">YouTube Videos</h4>
       <table class="table table-hover">
         <tr>
-          <th><object width="270" height="240"
-                      data=<%=@video_url_one%>>
-              </object>
-          </th>
-          <th><object width="270" height="240"
-                      data=<%=@video_url_two%>>
-              </object>
-          </th>
+          <th><iframe width="550" height="240"
+                      src="http://www.youtube.com/embed/<%=@video_id_one%>?autoplay=0">
+          </iframe></th>
+
         </tr>
       </table>
     </div>

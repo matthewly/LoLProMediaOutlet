@@ -23,19 +23,27 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'omniauth-twitter'
+gem 'omniauth-twitter', '~> 1.1.0'
 
-gem 'twitter'
+gem 'omniauth-facebook' # Facebook authentication
+
+gem 'twitter', '~> 5.13.0'
 
 gem 'youtube_it'
 
 gem 'nokogiri'
 
-gem 'rest-client'
+gem 'rest-client', '~> 1.7.2'
 
 gem 'jquery-rails'
 
-gem 'twitter-text'
+gem 'twitter-text', '~> 1.10.0'
+
+gem 'koala', '~> 2.0'
+
+gem 'yt', '~> 0.24.0'
+
+gem 'yourub'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

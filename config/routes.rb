@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'player/new'
   get 'player/create'
   get 'player/show'
-  get 'home/index'
   get '/player/:id', to: 'player#show'
   post 'player/create'
   post 'player/show'

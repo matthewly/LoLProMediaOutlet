@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231215731) do
+ActiveRecord::Schema.define(version: 20150523232822) do
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "facebook_prof"
+    t.string   "twitter_prof"
+    t.string   "twitch_prof"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

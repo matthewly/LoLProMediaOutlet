@@ -2,6 +2,12 @@
 
 one:
   name: MyString
+  facebook_prof: MyString
+  twitter_prof: MyString
+  twitch_prof: MyString
 
 two:
   name: MyString
+  facebook_prof: MyString
+  twitter_prof: MyString
+  twitch_prof: MyString

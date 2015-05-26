@@ -17,12 +17,10 @@ ActiveRecord::Schema.define(version: 20150523232822) do
   enable_extension "plpgsql"
 
   create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.string   "facebook_prof"
-    t.string   "twitter_prof"
-    t.string   "twitch_prof"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string "name"
+    t.string "facebook_prof"
+    t.string "twitter_prof"
+    t.string "twitch_prof"
   end
 
 end

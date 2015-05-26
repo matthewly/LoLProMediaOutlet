@@ -1,0 +1,1 @@
+{"klass":"Taps::Pull","database_url":"postgres://root@localhost/player_development","remote_url":"http://root:secret@localhost:5000","session_uri":"/sessions/6456033639","stream_state":{},"completed_tables":[],"table_filter":null,"remote_tables_info":{"schema_migrations":200,"players":200}}

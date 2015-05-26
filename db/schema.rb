@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150523232822) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.string   "facebook_prof"

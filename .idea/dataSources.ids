@@ -28,7 +28,10 @@
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
   </data-source>
-  <data-source name="PostgreSQL - @localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
+  <data-source name="PostgreSQL - development_psql@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails LoLProMediaOutlet: production" uuid="b805955e-57db-4f09-a140-387bc7d1aa3a">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

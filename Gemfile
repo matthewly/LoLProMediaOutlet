@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0p0'
+
 gem "httparty"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+
+gem 'rails_12factor'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'pg'
@@ -35,8 +40,6 @@ gem 'youtube_it'
 gem 'nokogiri'
 
 gem 'rest-client', '~> 1.7.2'
-
-gem 'jquery-rails'
 
 gem 'twitter-text', '~> 1.10.0'
 

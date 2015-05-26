@@ -30,6 +30,7 @@ development:
   encoding: unicode
   database: player_development
   pool: 5
+  port: 5432
   username: root
   password:
 

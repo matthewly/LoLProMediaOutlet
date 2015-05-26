@@ -149,7 +149,6 @@
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.2, ruby-2.0.0-p481) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.3, ruby-2.0.0-p481) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="memoizable (v0.4.2, ruby-2.0.0-p481) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mime-types (v2.5, ruby-2.0.0-p481) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile (v0.6.2, ruby-2.0.0-p481) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.6.1, ruby-2.0.0-p481) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.11.0, ruby-2.0.0-p481) [gem]" level="application" />

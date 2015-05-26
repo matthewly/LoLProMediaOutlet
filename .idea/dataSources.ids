@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="Rails LoLProMediaOutlet: development" uuid="949aaef3-8618-46db-adf1-297c49484b13">
-    <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
-    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
     <schema name="" catalog=""/>
     <table name="players" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
@@ -28,7 +27,7 @@
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
   </data-source>
-  <data-source name="PostgreSQL - development_psql@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
+  <data-source name="PostgreSQL - player_development@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
   <data-source name="Rails LoLProMediaOutlet: production" uuid="b805955e-57db-4f09-a140-387bc7d1aa3a">

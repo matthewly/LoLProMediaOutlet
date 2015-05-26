@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2382975237">
+  <component name="DataSourceManagerImpl" format="xml" hash="2072200622">
     <data-source source="LOCAL" name="Rails LoLProMediaOutlet: development" uuid="949aaef3-8618-46db-adf1-297c49484b13">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:player_development</jdbc-url>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/player_development</jdbc-url>
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/postgresql-driver-license.txt</url>
@@ -29,11 +29,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="PostgreSQL - development_psql@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
+    <data-source source="LOCAL" name="PostgreSQL - player_development@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/db/development_psql</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/player_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails LoLProMediaOutlet: production" uuid="b805955e-57db-4f09-a140-387bc7d1aa3a">

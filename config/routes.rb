@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get '/auth/:provider/callback', to: 'player#create'
-  get 'player/new'
-  get 'player/create'
-  get 'player/show'
-  get '/player/:id', to: 'player#show'
-  post 'player/create'
+  #get 'player/new'
+  #get 'player/show'
+  get '/player/:name', to: 'player#show'
   post 'player/show'
   resources :player
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,7 +5,7 @@
         -o-background-size: cover;
     }
     .background {
-        background-image: url('lol.jpg'); no-repeat center center fixed;
+        background-image: url('lol.jpg');
         background-size: cover;
         height: 100vh;
         width: 100%;
@@ -20,18 +20,29 @@
     p {
         font-style: bold;
     }
+    .error {
+        color: red;
+    }
+    .credits {
+        color: #696969;
+        position: absolute;
+        left:0;
+        bottom:0;
+    }
 </style>
 
 <body>
     <div class="background"></div>
-        <div class="row col-md-3 col-md-offset-5 form">
+    <div class="row col-md-5 col-md-offset-5 form">
 
-          <%= form_for :player  ,url: player_show_url do |f| %>
-              <h4>Enter Pro Player Name</h4>
-              <%= f.text_field :name %>
-              <button type="submit" class="btn btn-primary">Search</button>
-          <% end %>
-          <p>Stuck? Try "doublelift</p>
-        </div>
+      <%= form_for :player, url: player_show_url, method: 'get' do |f| %>
+          <h4>Enter Pro Player Name</h4>
+          <%= f.text_field :name %>
+          <button type="submit" class="btn btn-primary">Search</button>
+      <% end %>
+      <p>Stuck? Try "doublelift</p>
+      <span class="error"><%= params[:notice] %></span>
+    </div>
+    <div class="credits">Photo credit to Riot Games</div>
 
 </body>

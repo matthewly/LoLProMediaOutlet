@@ -16,19 +16,17 @@ class PlayerController < ApplicationController
     @player = Player.new
   end
 
-  def create
-
-    #@user = Player.fin.find_or_create_from_auth_hash(auth_hash)
-    #self.current_user = @user
-    #redirect_to '/'
-    @callback_url = "http://127.0.0.1:3000/oauth/callback"
-  end
-
   def show
     @player= Player.new(params.require(:player).permit(:name))
     @player.name = @player.name.downcase
     @name = summoner_name(@player.name)
     @id = summoner_id(@player.name)
+
+    unless Player.exists?(:name => @player.name)
+      #redirect_to player_new_path(:controller => 'player', :action => 'new')
+      redirect_to root_path(:notice => 'Player does not exist in NA LCS database. Please try again.')
+      return
+    end
 
     url = "https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/"+@id.to_s+"?api_key=b1f40660-e8a0-4774-9f65-f107d7ca5559"
     @response = HTTParty.get(URI.encode(url))
@@ -45,25 +43,37 @@ class PlayerController < ApplicationController
     @cid = Array.new(5)
     @champ_name= Array.new(5)
 
-    riot_response =  JSON.parse(@response.body)["matches"]
+    flag = 0
+
+    riot_response =  JSON.parse(@response.body)["matches"] rescue true
+    unless riot_response
+      @kills[i] = ""
+      @deaths[i] = ""
+      @assists[i] = ""
+      @wins[i] = ""
+      @ge[i] = ""
+      @time[i] = ""
+      @cid[i] = ""
+      @champ_name[i] =
+      @kills[0] = riot_response
+      flag = nil
+    end
 
     until match_num < 5 do
-      match_history = riot_response[match_num]
-      #get_stats(match_history, i)
+      match_history = riot_response[match_num] rescue true
 
-      @kills[i] = match_history["participants"][0]["stats"]["kills"]
-      @deaths[i] = match_history["participants"][0]["stats"]["deaths"]
-      @assists[i] = match_history["participants"][0]["stats"]["assists"]
-      @wins[i] = match_history["participants"][0]["stats"]["winner"]
-      @ge[i] = match_history["participants"][0]["stats"]["goldEarned"]
-      @time[i] = match_history["matchDuration"]/60
-      @cid[i] = match_history['participants'][0]['championId']
+      @kills[i] = match_history["participants"][0]["stats"]["kills"] rescue 0
+      @deaths[i] = match_history["participants"][0]["stats"]["deaths"] rescue 0
+      @assists[i] = match_history["participants"][0]["stats"]["assists"] rescue 0
+      @wins[i] = match_history["participants"][0]["stats"]["winner"] rescue 0
+      @ge[i] = match_history["participants"][0]["stats"]["goldEarned"] rescue 0
+      @time[i] = match_history["matchDuration"]/60 rescue 0
+      @cid[i] = match_history['participants'][0]['championId'] rescue 0
       @champ_name[i] = champ_name(@cid[i])
 
       match_num -= 1
       i += 1
     end
-
 
     #TWITCH
     @twitch_profile = get_twitch_profile(@player.name)
@@ -72,7 +82,15 @@ class PlayerController < ApplicationController
 
 
     #Twitter
-    @twitter_profile = get_twitter_profile(@player.name)
+    @twitter_profile = get_twitter_profile(@player.name) rescue true
+    unless @twitter_profile
+      @twitter_profile = nil
+      @tweettime1 = "Twitter profile does not exist for this player."
+      @tweettime2 = ""
+      @tweettime3 = ""
+      @tweettime4 = ""
+    end
+
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "v6ZGMBIdufzkKgrx19RZQqC5N"
       config.consumer_secret     = "IDI7GMaJn7Bl8N5Zj28cDQ1TxWuRsVFqBtCx1WlrsW7OKLW1Fg"
@@ -80,11 +98,13 @@ class PlayerController < ApplicationController
       config.access_token_secret = "lTr3wqMxABmeFJJbHjGs5TFG7jkI8Y9Kmfvvq5RyzpuPP"
     end
 
-    @tweet = client.user_timeline(@twitter_profile, {count: 4})
-    @tweettime1 = @tweet[0].created_at.strftime("%D")
-    @tweettime2 = @tweet[1].created_at.strftime("%D")
-    @tweettime3 = @tweet[2].created_at.strftime("%D")
-    @tweettime4 = @tweet[3].created_at.strftime("%D")
+    if @twitter_profile
+      @tweet = client.user_timeline(@twitter_profile, {count: 4})
+      @tweettime1 = @tweet[0].created_at.strftime("%D")
+      @tweettime2 = @tweet[1].created_at.strftime("%D")
+      @tweettime3 = @tweet[2].created_at.strftime("%D")
+      @tweettime4 = @tweet[3].created_at.strftime("%D")
+    end
 
 
     #YOUTUBE
@@ -97,15 +117,15 @@ class PlayerController < ApplicationController
     @video_id_one = videos.first.id
 
     #FACEBOOK
-    @facebook_profile = get_facebook_profile(@player.name)
-    @facebook_post1 = get_facebook_post(@facebook_profile)
+    @facebook_profile = get_facebook_profile(@player.name) rescue true
+    unless @facebook_profile
+      @facebook_profile = nil
+      @facebook_post1 = "Facebook profile does not exist for this player."
+    end
 
-
-  end
-
-  protected
-  def auth_hash
-    request.env['omniauth.auth']
+    if @facebook_profile
+      @facebook_post1 = get_facebook_post(@facebook_profile)
+    end
   end
 
   private
@@ -151,7 +171,7 @@ class PlayerController < ApplicationController
   def champ_name(champ_id)
     url = "https://na.api.pvp.net//api/lol/static-data/na/v1.2/champion/"+champ_id.to_s+"?api_key=b1f40660-e8a0-4774-9f65-f107d7ca5559"
     @response = HTTParty.get(URI.encode(url))
-    @json =  JSON.parse(@response.body)["name"]
+    @json =  JSON.parse(@response.body)["name"] rescue "No champ played recently"
     return @json
   end
 
@@ -193,8 +213,7 @@ class PlayerController < ApplicationController
     page = Nokogiri::HTML(RestClient.get(url))
     puts page.class   # => Nokogiri::HTML::Document
     table_headers = page.css('body').to_s.split("_5pbx userContent")[1].split("</p>")[0].split("<p>")[1]
-
-    @facebook_post1 = table_headers
+    @facebook_post1 = table_headers.split('<')[0]
     return @facebook_post1
   end
 

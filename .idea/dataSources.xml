@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2072200622">
+  <component name="DataSourceManagerImpl" format="xml" hash="897423120">
     <data-source source="LOCAL" name="Rails LoLProMediaOutlet: development" uuid="949aaef3-8618-46db-adf1-297c49484b13">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -29,13 +29,6 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="PostgreSQL - player_development@localhost" uuid="ac8c9e4b-3882-4f0e-8bde-de9382c40aee">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/player_development</jdbc-url>
-      <libraries />
-    </data-source>
     <data-source source="LOCAL" name="Rails LoLProMediaOutlet: production" uuid="b805955e-57db-4f09-a140-387bc7d1aa3a">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
@@ -49,6 +42,13 @@
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/postgresql-9.4-1201.jdbc4.jar</url>
         </library>
       </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL -" uuid="7bf671f6-acba-425c-a684-4740dcf96a97">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>postgres://jozolrwsofjeih:kWV_W-6fhTjBUQFXZiwmV8IZmz@ec2-107-20-178-83.compute-1.amazonaws.com:5432/de60lsj96qm3i0</jdbc-url>
+      <libraries />
     </data-source>
   </component>
 </project>

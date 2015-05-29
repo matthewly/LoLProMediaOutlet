@@ -113,7 +113,8 @@ class PlayerController < ApplicationController
       config.log_level = :debug
     end
     videos = Yt::Collections::Videos.new
-    videos.where(order: 'viewCount', q: @player.name, safe_search: 'none')
+    query = @player.name + " league of legends"
+    videos.where(order: 'viewCount', q: query, safe_search: 'none')
     @video_id_one = videos.first.id
 
     #FACEBOOK

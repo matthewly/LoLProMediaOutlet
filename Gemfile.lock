@@ -285,3 +285,6 @@ DEPENDENCIES
   yourub
   youtube_it
   yt (~> 0.24.0)
+
+BUNDLED WITH
+   1.10.1

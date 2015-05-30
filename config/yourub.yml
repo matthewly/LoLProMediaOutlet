@@ -1,7 +1,0 @@
-yourub_defaults: &yourub_defaults
-  developer_key: 'AIzaSyD3WDxuYwOax1v_NCMxUWIWrFhJMH2y7AY'
-  youtube_api_service_name: 'youtube'
-  youtube_api_version: 'v3'
-  application_name: "yourub"
-  application_version: "0.1"
-  log_level: WARN

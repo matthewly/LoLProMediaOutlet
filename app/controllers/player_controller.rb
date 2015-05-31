@@ -109,7 +109,7 @@ class PlayerController < ApplicationController
 
     #YOUTUBE
     Yt.configure do |config|
-      config.api_key = 'AIzaSyDiO1zdlXLtzqfvo_92lxQuavN3MdU0U4M'
+      config.api_key = 'AIzaSyBFwUV1Dnv9pIBI0TckppPDBudKovcuENU'
       config.log_level = :debug
     end
     videos = Yt::Collections::Videos.new

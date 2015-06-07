@@ -6,8 +6,6 @@ require 'rubygems'
 require 'rest-client'
 require 'twitter-text'
 require 'time'
-require 'yt'
-require 'yourub'
 require 'google/api_client'
 
 class PlayerController < ApplicationController

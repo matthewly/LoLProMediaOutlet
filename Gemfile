@@ -45,9 +45,7 @@ gem 'twitter-text', '~> 1.10.0'
 
 gem 'koala', '~> 2.0'
 
-gem 'yt', '~> 0.24.0'
-
-gem 'yourub'
+gem 'puma'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

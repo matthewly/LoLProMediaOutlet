@@ -1,6 +1,8 @@
 #LoLProMediaOutlet
 =================
-LINK: https://intense-harbor-8774.herokuapp.com
+LINK: https://lolpromediaoutlet.herokuapp.com
+
+![alt tag](https://github.com/matthewly/LoLProMediaOutlet/blob/master/lolpromediaoutlet.png)
 
 ##Description
 LoLProMediaOutlet is a Ruby on Rails web application that displays the latest social media feeds from professional North American League of Legends players.
@@ -21,8 +23,6 @@ Given any pro player summoner name, LoLProMediaOutlet queries the NALCS database
 - Automate process to get new players into database
 - Correctly handle players without all social media profiles
 - Expand this gaming web application to other industries (i.e. NFL football players)
-
-![alt tag](https://github.com/matthewly/LoLProMediaOutlet/blob/master/lolpromediaoutlet.png)
 
 
 

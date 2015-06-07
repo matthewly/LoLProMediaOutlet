@@ -3,13 +3,6 @@ class Player < ActiveRecord::Base
   YOUTUBE_API_SERVICE_NAME = 'youtube'
   YOUTUBE_API_VERSION = 'v3'
 
-  def player_database_check(player_name)
-    unless Player.exists?(:name => player_name)
-      redirect_to root_path(:notice => 'Player does not exist in NA LCS database. Please try again.')
-      return
-    end
-  end
-
   def get_service
     client = Google::APIClient.new(
         :key => DEVELOPER_KEY,

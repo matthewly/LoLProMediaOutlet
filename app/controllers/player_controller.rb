@@ -20,8 +20,10 @@ class PlayerController < ApplicationController
     @name = @player.summoner_name(@player.name)
     @id = @player.summoner_id(@player.name)
 
-    @player.player_database_check(@player.name)
-
+    unless Player.exists?(:name => @player.name)
+      redirect_to root_path(:notice => 'Player does not exist in NA LCS database. Please try again.')
+      return
+    end
 
     url = "https://na.api.pvp.net/api/lol/na/v2.2/matchhistory/"+@id.to_s+"?api_key=b1f40660-e8a0-4774-9f65-f107d7ca5559"
     @response = HTTParty.get(URI.encode(url))

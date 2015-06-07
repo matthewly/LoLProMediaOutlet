@@ -8,9 +8,14 @@ require 'twitter-text'
 require 'time'
 require 'yt'
 require 'yourub'
+require 'google/api_client'
 
 class PlayerController < ApplicationController
   include Twitter::Autolink
+
+  DEVELOPER_KEY = 'AIzaSyBFwUV1Dnv9pIBI0TckppPDBudKovcuENU'
+  YOUTUBE_API_SERVICE_NAME = 'youtube'
+  YOUTUBE_API_VERSION = 'v3'
 
   def new
     @player = Player.new
@@ -108,14 +113,17 @@ class PlayerController < ApplicationController
 
 
     #YOUTUBE
-    Yt.configure do |config|
-      config.api_key = 'AIzaSyBFwUV1Dnv9pIBI0TckppPDBudKovcuENU'
-      config.log_level = :debug
-    end
-    videos = Yt::Collections::Videos.new
-    query = @player.name + " league of legends"
-    videos.where(order: 'viewCount', q: query, safe_search: 'none')
-    @video_id_one = videos.first.id
+    client, youtube = get_service
+    search_response = client.execute!(
+        :api_method => youtube.search.list,
+        :parameters => {
+            :part => 'snippet',
+            :q => 'league of legends ' + @player.name,
+            :maxResults => 1
+        }
+    )
+
+    @video_id = search_response.data.items[0].id.videoId
 
     #FACEBOOK
     @facebook_profile = get_facebook_profile(@player.name) rescue true
@@ -130,6 +138,18 @@ class PlayerController < ApplicationController
   end
 
   private
+
+  def get_service
+    client = Google::APIClient.new(
+        :key => DEVELOPER_KEY,
+        :authorization => nil,
+        :application_name => $PROGRAM_NAME,
+        :application_version => '1.0.0'
+    )
+    youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+    return client, youtube
+  end
 
   def summoner_name(name)
     url = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/" + name + "/?api_key=b1f40660-e8a0-4774-9f65-f107d7ca5559"
